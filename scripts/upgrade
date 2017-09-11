@@ -93,6 +93,11 @@ pushd $NETDATA_TMPDIR
 
 configure_netdata
 
+# If YunoHost web logs have never been set in netdata configuration, set them
+if [ -z "$(grep "YUNOHOST" /opt/netdata/etc/netdata/python.d/web_log.conf)" ] ; then
+  netdata_add_yunohost_web_logs
+fi
+
 # Store the app.src file
 popd
 cp ../conf/app.src /opt/netdata/etc/netdata

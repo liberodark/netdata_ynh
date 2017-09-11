@@ -99,6 +99,9 @@ configure_netdata
 popd
 cp ../conf/app.src /opt/netdata/etc/netdata
 
+# Add a web_log entry for every YunoHost domain
+netdata_add_yunohost_web_logs
+
 #=================================================
 # GENERIC FINALIZATION
 #=================================================
